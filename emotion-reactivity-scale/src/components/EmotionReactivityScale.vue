@@ -46,35 +46,41 @@ const allAnswered = computed(() => answeredCount.value === questions.length);
 </script>
 
 <template>
-	<div class="min-h-screen bg-white p-4 sm:p-6 lg:p-8">
-		<div class="max-w-3xl mx-auto">
-			<!-- Header -->
-			<h1 class="text-xl sm:text-2xl font-bold text-center text-gray-900 mb-6">Emotion Reactivity Scale</h1>
+	<div class="min-h-screen bg-white">
+		<!-- Sticky Header Section -->
+		<div class="sticky top-0 z-10 bg-white shadow-sm">
+			<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+				<!-- Header -->
+				<h1 class="text-xl sm:text-2xl font-bold text-center text-gray-900 mb-3">Emotion Reactivity Scale</h1>
 
-			<!-- Instructions -->
-			<div class="border border-gray-300 rounded-lg p-4 mb-6 bg-gray-50">
-				<p class="text-sm text-gray-700"><span class="font-semibold">Instructions:</span> Veuillez vous auto-évaluer sur les affirmations suivantes, en utilisant une échelle de 0 à 6.</p>
-			</div>
-
-			<!-- Scale Legend -->
-			<div class="mb-4 p-3 bg-gray-100 rounded-lg">
-				<div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 text-xs text-gray-600">
-					<div v-for="item in scaleLabels" :key="item.value" class="flex items-center gap-1">
-						<span class="font-semibold">{{ item.value }}</span> = {{ item.label }}
+				<!-- Scale Legend -->
+				<div class="p-3 bg-gray-100 rounded-lg">
+					<div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 text-xs text-gray-600">
+						<div v-for="item in scaleLabels" :key="item.value" class="flex items-center gap-1">
+							<span class="font-semibold">{{ item.value }}</span> = {{ item.label }}
+						</div>
 					</div>
 				</div>
-			</div>
 
-			<!-- Questions Table -->
-			<div class="border border-gray-300 rounded-lg overflow-hidden">
-				<!-- Desktop Header -->
-				<div class="hidden lg:grid lg:grid-cols-[1fr_repeat(7,44px)] bg-gray-100 border-b border-gray-300">
-					<div class="p-3"></div>
+				<!-- Desktop Table Header -->
+				<div class="hidden lg:grid lg:grid-cols-[1fr_repeat(7,44px)] bg-gray-100 mt-3 rounded-t-lg border border-gray-300 border-b-0">
+					<div class="p-3 text-sm font-semibold text-gray-700">Question</div>
 					<div v-for="item in scaleLabels" :key="item.value" class="p-2 text-center font-semibold text-gray-700 text-sm">
 						{{ item.value }}
 					</div>
 				</div>
+			</div>
+		</div>
 
+		<!-- Content Section -->
+		<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+			<!-- Instructions -->
+			<div class="border border-gray-300 rounded-lg p-4 mb-4 bg-gray-50 lg:hidden">
+				<p class="text-sm text-gray-700"><span class="font-semibold">Instructions:</span> Veuillez vous auto-évaluer sur les affirmations suivantes, en utilisant une échelle de 0 à 6.</p>
+			</div>
+
+			<!-- Questions Table -->
+			<div class="border border-gray-300 rounded-lg lg:rounded-t-none overflow-hidden">
 				<!-- Questions -->
 				<div v-for="(question, index) in questions" :key="index" class="border-b border-gray-200 last:border-b-0">
 					<!-- Desktop Layout -->
@@ -107,7 +113,7 @@ const allAnswered = computed(() => answeredCount.value === questions.length);
 			</div>
 
 			<!-- Submit Button -->
-			<div class="mt-6 text-center">
+			<div class="mt-6 text-center pb-6">
 				<button
 					:disabled="!allAnswered"
 					class="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors">
