@@ -7,7 +7,7 @@ const dateSubmitted = ref("");
 const scaleLabels = [
 	{ value: 0, label: "Jamais" },
 	{ value: 1, label: "Quelques fois par an" },
-	{ value: 2, label: "Environ 1 par mois" },
+	{ value: 2, label: "Environ 1 fois par mois" },
 	{ value: 3, label: "2–3 fois par mois" },
 	{ value: 4, label: "Environ 1 par semaine" },
 	{ value: 5, label: "2–3 fois par semaine" },
@@ -103,9 +103,7 @@ const allAnswered = computed(() => answeredCount.value === questions.length);
 
 			<!-- Progress Display -->
 			<div class="mt-6 p-4 bg-gray-50 border border-gray-200 rounded-lg">
-				<p class="text-center text-gray-700">
-					{{ answeredCount }} / {{ questions.length }} questions répondues
-				</p>
+				<p class="text-center text-gray-700">{{ answeredCount }} / {{ questions.length }} questions répondues</p>
 			</div>
 
 			<!-- Submit Button -->
