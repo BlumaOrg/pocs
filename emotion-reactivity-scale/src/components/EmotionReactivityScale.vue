@@ -9,7 +9,7 @@ const scaleLabels = [
 	{ value: 1, label: "Quelques fois par an" },
 	{ value: 2, label: "Environ 1 fois par mois" },
 	{ value: 3, label: "2–3 fois par mois" },
-	{ value: 4, label: "Environ 1 par semaine" },
+	{ value: 4, label: "Environ 1 fois par semaine" },
 	{ value: 5, label: "2–3 fois par semaine" },
 	{ value: 6, label: "Tous les jours" },
 ];
